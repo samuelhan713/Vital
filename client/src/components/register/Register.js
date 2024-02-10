@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { SHA256, enc } from "crypto-js";
 import Lottie from "lottie-react";
-import { createUserAPIMethod } from "../../api/auth";
+import { createUserAPIMethod, loginUserAPIMethod } from "../../api/auth";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/userSlice";
 import landingData1 from "../../assets/Lottie/ProcessIndicator.json";
@@ -14,6 +14,7 @@ import Navbar from '../navbar/Navbar';
 
 const Register = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [failed, setFailed] = useState(false);
     const [registerLoading, setRegisterIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
@@ -46,32 +47,45 @@ const Register = () => {
             return;
         }
 
-        setRegisterIsLoading(true); // Set loading to true when starting the registration
+        setRegisterIsLoading(true);
 
         // encrypt password
-        let hashedPassword = SHA256(formData.password).toString(enc.Hex);
+        // let hashedPassword = SHA256(formData.password).toString(enc.Hex);
         const user = {
             firstName: formData.firstName,
             lastName: formData.lastName,
             email: formData.email,
-            password: hashedPassword
+            password: formData.password
         };
         createUserAPIMethod(user)
-            .then((response) => {
-                if (response.ok) {
-                    console.log("Successfully registered");
-                    navigate("/login");
-                } else {
-                    console.log("Invalid register");
-                    setFailed(true);
-                }
-            })
-            .catch((err) => {
-                console.error("Error registering user:", err);
-            })
-            .finally(() => {
-                setRegisterIsLoading(false);
-            });
+        .then((response) => {
+            if (response.ok) {
+                loginUserAPIMethod(user)
+                .then((res) => {
+                    if (res.ok) {
+                        res.json().then((jsonResult) => {
+                            dispatch(login(jsonResult));
+                            navigate(`/form/${jsonResult.user._id}`)
+                        });
+                    }
+                })
+                .catch((err) => {
+                    console.error("Error during login:", err);
+                })
+                .finally(() => {
+                    setRegisterIsLoading(false);
+                });
+            } else {
+                console.log("Invalid register");
+                setFailed(true);
+            }
+        })
+        .catch((err) => {
+            console.error("Error registering user:", err);
+        })
+        .finally(() => {
+            setRegisterIsLoading(false);
+        });
     };
 
     const signIn = () => {
