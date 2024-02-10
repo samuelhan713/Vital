@@ -54,7 +54,7 @@ if(analysed_df.shape == (0,0)):
         print("No suppliments available that satisfies your requirements")
         sys.exit("Bailing out of the program.")
 
-if(sys.argv[1] <= 6):
+if(int(sys.argv[1]) <= 6):
     d = {'Supplement Form [LanguaL]': ['Powder', 'Liquid', 'Gummy or Jelly']}
     child_rec = pd.DataFrame(data=d)
 
@@ -113,4 +113,7 @@ if(sys.argv[3]):
     analysed_df = new_df  
     
 
-analysed_df.to_json(r'./output.json')
+# analysed_df.to_json(r'./output.json')
+result = analysed_df.to_json(orient="split")
+parsed = json.loads(result)
+print(json.dumps(parsed, indent=4))
