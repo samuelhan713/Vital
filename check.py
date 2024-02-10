@@ -44,11 +44,15 @@ analysed_df = pd.DataFrame()
 for index, row in analysed_filtered_DPBS.iterrows():
     # print(row)
     # filter_full_other_analyzed = filter_full_other[filter_full_other["Statement"].str.contains(row['Diagnostic_procedure'])]
-    analysed_df=pd.concat([analysed_df, filter_full_other[filter_full_other["Statement"].str.contains(row['value'],na=False)]])
+    analysed_df=pd.concat([analysed_df, full_merged[full_merged["Statement"].str.contains(row['value'],na=False)]])
 
 
 # Age Detection : (6 or younger => Supplement Form should be either Powder, Liquid, Gummy or Jelly
 #                 (7 or older   => Any kind)
+
+if(analysed_df.shape == (0,0)):
+        print("No suppliments available that satisfies your requirements")
+        sys.exit("Bailing out of the program.")
 
 if(sys.argv[1] <= 6):
     d = {'Supplement Form [LanguaL]': ['Powder', 'Liquid', 'Gummy or Jelly']}
@@ -106,8 +110,7 @@ if(sys.argv[3]):
     # analysed_df_copy = analysed_df.copy()
     for index, row in on_rec.iterrows():
         new_df = pd.concat([new_df,analysed_df[analysed_df["Market Status"].str.contains(row['Market Status'],case=False)]])
-
-analysed_df = new_df    
+    analysed_df = new_df  
     
 
 analysed_df.to_json(r'./output.json')
