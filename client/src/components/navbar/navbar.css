@@ -25,6 +25,11 @@
     z-index: 1;
     width: 100%;
     top: 0;
+    color: white;
+}
+
+.dark {
+    color: black;
 }
 
 .navbar_inner {
@@ -38,7 +43,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
 }
 
 .main_logo {
