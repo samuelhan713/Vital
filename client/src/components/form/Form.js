@@ -37,9 +37,9 @@ const Form = () => {
 
     useEffect(() => {
         if (userId !== authUserId) {
-          navigate("/");
+            navigate("/");
         }
-      }, []);
+    }, []);
 
     const handleNextQuestion = (answer) => {
         setAnswers([...answers, answer]);
@@ -57,20 +57,20 @@ const Form = () => {
         };
 
         createQuestionAPIMethod(question)
-        .then((response) => {
-            if (response.ok) {
-                console.log("A form has been submitted.");
-            } else {
-                setErrorMessage("Error submitting the form. Please try again.");
-            }
-        })
-        .catch((err) => {
-            console.error("Error during submission:", err);
-            setErrorMessage("Something went wrong during submission. Please try again.");
-          })
-        .finally(() => {
-            setSubmitLoading(false);
-        });
+            .then((response) => {
+                if (response.ok) {
+                    console.log("A form has been submitted.");
+                } else {
+                    setErrorMessage("Error submitting the form. Please try again.");
+                }
+            })
+            .catch((err) => {
+                console.error("Error during submission:", err);
+                setErrorMessage("Something went wrong during submission. Please try again.");
+            })
+            .finally(() => {
+                setSubmitLoading(false);
+            });
     }
 
     return (
@@ -89,10 +89,10 @@ const Form = () => {
             ) : (
                 <div className='review-container'>
                     <div className='review'>
-                        <h1 style={{marginBottom: "3rem"}}>Thank you for answering all questions!</h1>
+                        <h1>We appreciate your cooperation.</h1>
                         <ul>
                             {answers.map((answer, index) => (
-                                <li style={{marginBottom: "1.5rem"}} key={index}>{`Answer ${index + 1}: ${answer}`}</li>
+                                <div>{`${index + 1}. ${answer}`}</div>
                             ))}
                         </ul>
 
@@ -112,7 +112,7 @@ const Form = () => {
                                 <Lottie animationData={landingData1} style={style} />
                             </div>
                         ) : (
-                            <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+                            <Button variant="contained" style={{ backgroundColor: "black" }} onClick={handleSubmit}>Submit</Button>
                         )}
                     </div>
                 </div>

@@ -103,11 +103,11 @@ const Question = ({ question, questionType, options, onNextQuestion, answers, cu
                 </div>
             )}
             <div className='questions-bottom'>
-                {currentPage === 3 ? (
+                {/* {currentPage === 3 ? (
                     <Button variant="contained" style={{ backgroundColor: "black" }} onClick={clickSubmit}>Submit</Button>
-                ) : (
-                    <Button variant="contained" style={{ backgroundColor: "black" }} onClick={handleNextQuestion}>Next</Button>
-                )}
+                ) : ( */}
+                <Button variant="contained" style={{ backgroundColor: "black" }} onClick={handleNextQuestion}>Next</Button>
+                {/* )} */}
             </div>
         </div>
     );
