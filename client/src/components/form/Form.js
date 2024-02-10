@@ -14,8 +14,9 @@ import landingData1 from "../../assets/Lottie/ProcessIndicator.json";
 
 // const questions = ['How old are you?', 'What is your sex?', 'Are you allergic to any medication?']; // Add your questions
 const questions = [
-    { question: 'What is your sex?', questionType: 'options1', options: ['I am a male.', 'I am a female.', 'Other'] },
-    { question: 'Do you meet the age requirement?', questionType: 'options2', options: ['I am older than 6 years old.', 'I am filling this out for a child 6 years old or younger.'] },
+    { question: 'What is your sex?', questionType: 'options1', options: ['Male.', 'Female.', 'Other'] },
+    { question: 'Do you meet the age requirement?', questionType: 'options2', options: ['I am older than 6 years old.', 'I am filling this out for a child younger than 6 years old.'] },
+    // { question: 'Do you meet the age requirement?', questionType: 'options2', options: [true, false] },
     { question: 'Are you allergic to any medication?', questionType: 'text' },
     { question: 'Please write down any internal bodily functions you would like to improve.', questionType: 'text' }
 ];
@@ -51,9 +52,10 @@ const Form = () => {
 
         const question = {
             gender: answers[0],
-            age: answers[1],
+            age: answers[1] === questions[1].options[0] ? true : false,
             allergies: answers[2],
-            description: answers[3]
+            description: answers[3],
+            user_id: authUserId,
         };
 
         createQuestionAPIMethod(question)
