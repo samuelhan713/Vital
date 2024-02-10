@@ -26,7 +26,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/mainpage" element={<MainPage />} />
           <Route path="/landing" element={<Landing />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/form/:userId" element={<Form />} />
         </Routes>
       </Router>
     </div>
