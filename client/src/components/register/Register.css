@@ -1,0 +1,36 @@
+.registration-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #efeded;
+}
+
+.registration-form-sub-container {
+  padding: 100px 300px;
+  /* background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); */
+  background: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%);
+  border-radius: 10px;
+}
+
+.registration-form {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: aliceblue;
+}
+
+.registration-form div {
+  margin-bottom: 10px;
+  width: 400px;
+}
+
+.registration-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
