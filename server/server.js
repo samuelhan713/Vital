@@ -6,9 +6,7 @@ const app = require("./app");
 // IMPORTED ROUTES
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
-
-// IMPORTED CONTROLLERS
-const userController = require("./controllers/user");
+const questionRoutes = require("./routes/question");
 
 // CONFIGURATIONS
 dotenv.config();
@@ -16,6 +14,7 @@ dotenv.config();
 // ROUTES
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/questions", questionRoutes);
 
 // MONGOOSE SETUP
 const PORT = process.env.PORT || 3001;
