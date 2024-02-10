@@ -9,12 +9,13 @@ import boy from "../../assets/images/boy.svg";
 import man from "../../assets/images/man.svg";
 import woman from "../../assets/images/woman.svg";
 import girl from "../../assets/images/girl.svg";
+import { useNavigate } from "react-router-dom";
 
-const Question = ({ question, questionType, options, onNextQuestion, answers }) => {
+const Question = ({ question, questionType, options, onNextQuestion, answers, currentPage }) => {
     const [answer, setAnswer] = useState('');
     const [isFocused, setIsFocused] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
-
+    const navigate = useNavigate();
 
     const handleFocus = () => {
         setIsFocused(true);
@@ -31,6 +32,11 @@ const Question = ({ question, questionType, options, onNextQuestion, answers }) 
         console.log("selected option: ", option);
         setSelectedOption(option);
         setAnswer(option);
+    }
+
+    const clickSubmit = () => {
+        handleNextQuestion();
+        navigate('/mainpage');
     }
 
 
@@ -97,7 +103,11 @@ const Question = ({ question, questionType, options, onNextQuestion, answers }) 
                 </div>
             )}
             <div className='questions-bottom'>
-                <Button variant="contained" style={{ backgroundColor: "black" }} onClick={handleNextQuestion}>Next</Button>
+                {currentPage === 3 ? (
+                    <Button variant="contained" style={{ backgroundColor: "black" }} onClick={clickSubmit}>Submit</Button>
+                ) : (
+                    <Button variant="contained" style={{ backgroundColor: "black" }} onClick={handleNextQuestion}>Next</Button>
+                )}
             </div>
         </div>
     );

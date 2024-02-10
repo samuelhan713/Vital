@@ -15,7 +15,7 @@ import landingData1 from "../../assets/Lottie/ProcessIndicator.json";
 // const questions = ['How old are you?', 'What is your sex?', 'Are you allergic to any medication?']; // Add your questions
 const questions = [
     { question: 'What is your sex?', questionType: 'options1', options: ['I am a male.', 'I am a female.', 'Other'] },
-    { question: 'Do you meet the age requirement?', questionType: 'options2', options: ['I am older than 6 years old.', 'I am filling this out for a child younger than 6 years old.'] },
+    { question: 'Do you meet the age requirement?', questionType: 'options2', options: ['I am older than 6 years old.', 'I am filling this out for a child 6 years old or younger.'] },
     { question: 'Are you allergic to any medication?', questionType: 'text' },
     { question: 'Please write down any internal bodily functions you would like to improve.', questionType: 'text' }
 ];
@@ -83,6 +83,7 @@ const Form = () => {
                     options={questions[currentPage].options}
                     onNextQuestion={handleNextQuestion}
                     answers={answers}
+                    currentPage={currentPage}
                 />
 
             ) : (
