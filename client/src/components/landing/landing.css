@@ -1,0 +1,46 @@
+.landing {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../assets/images/background6.png');
+    background-size: cover;
+    /* or background-size: contain; */
+    background-position: center;
+    /* Optional: Center the background image */
+    background-repeat: no-repeat;
+    /* Optional: Prevent image repetition */
+    position: absolute;
+}
+
+.landing_inner {
+    margin-top: 80px;
+}
+
+.landing_titles {
+    display: flex;
+    justify-content: space-between;
+}
+
+.landing_title_first {
+    position: absolute;
+    top: 18rem;
+    left: 15rem;
+    font-size: 80px;
+    font-family: Poppins;
+    color: white;
+}
+
+.landing_title_second {
+    position: absolute;
+    top: 23rem;
+    left: 15rem;
+    font-size: 80px;
+    font-family: Poppins;
+    color: white;
+}
+
+.landing_get_started {
+    position: absolute;
+
+    top: 26rem;
+    left: 15rem;
+}

@@ -1,0 +1,118 @@
+.navbar {
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100,
+        "YTLC" 500;
+
+}
+
+.navbar_container {
+    /* padding: 1rem 2rem; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: large;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+
+.navbar_inner {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+}
+
+.navbar_logo_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main_logo {
+    width: 3rem;
+    height: 3rem;
+}
+
+.navbar_links {
+    display: flex;
+    gap: 2rem;
+}
+
+.link {
+    font-size: large;
+    font-weight: 300;
+    background-color: rgba(75, 86, 96, 0.585);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.landing_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing_maintext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landing_maintext h1 {
+    background: linear-gradient(45deg, #a7caed, #aca7ed, #f2e3eb);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 2rem 0 1rem 0;
+    padding: 0;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.landing_maintext div {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+
+
+@keyframes typewriter {
+    0% {
+        width: 0px;
+    }
+
+    100% {
+        width: 240px;
+    }
+}
+
+@keyframes blink {
+    0% {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+
+    100% {
+        border-right-color: transparent;
+    }
+}
+
+.contact_form_wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
