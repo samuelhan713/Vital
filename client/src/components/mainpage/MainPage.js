@@ -2,8 +2,14 @@ import React from 'react';
 import Navbar from '../navbar/Navbar';
 import './mainpage.css';
 import boy from "../../assets/images/boy.svg";
+import { Button } from '@mui/material';
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const MainPage = () => {
+    const navigate = useNavigate();
+    const userId = useSelector((state) => state.user.id)
+
     const data = [
         {
             user_id: "1",
@@ -37,6 +43,9 @@ const MainPage = () => {
     return (
         <div className='mainpage'>
             <Navbar />
+            <div className='retake'>
+                <Button variant="outlined" onClick={() => { navigate(`/form/${userId}`) }} style={{ color: "black", borderColor: "black", fontWeight: "bold" }}>Retake the questionnaire!</Button>
+            </div>
             <div className='mainpage_container'>
                 {data.map((d) => (
                     <div className='mainpage_form_data'>
@@ -54,4 +63,4 @@ const MainPage = () => {
     )
 }
 
-export default MainPage
+export default MainPage;
