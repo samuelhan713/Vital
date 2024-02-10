@@ -13,13 +13,10 @@ const QuestionSchema = new mongoose.Schema({
   },
   allergies: {
     type: String,
-    required: true,
-    min: 2,
     max: 100
   },
   description: {
     type: String,
-    min: 5,
     max: 1000
   },
   user_id: {
