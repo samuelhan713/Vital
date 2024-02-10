@@ -4,12 +4,21 @@ import Button from '../widgets/Button';
 import logo from "../../assets/images/logo.png";
 import logo2 from "../../assets/images/logo2.png";
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { logout } from "../../features/userSlice";
+import ButtonMaterial from '@mui/material/Button';
 import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-
-    const [auth, setAuth] = useState(false);
     const navigate = useNavigate();
+    const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        dispatch(logout());
+        navigate("/");
+    };
     const location = useLocation();
 
     // Extract the pathname from the location object
@@ -31,15 +40,20 @@ const Navbar = () => {
                     vital
                 </div>
 
-                {!auth ? (
+                {!isAuthenticated ? (
                     <div className="navbar_links">
                         <Button text="Login" to="/login" />
                         <Button text="Register" to="/register" />
                     </div>
                 ) : (
-                    <div className="btn_container">
+                    <ButtonMaterial
+                        type="submit"
+                        variant="contained"
+                        style={{ backgroundColor: "black" }}
+                        onClick={handleLogout}
+                    >
                         Logout
-                    </div>
+                    </ButtonMaterial>
                 )}
             </div>
         </div>
