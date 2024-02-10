@@ -16,16 +16,27 @@ const Question = ({ question, questionType, options, onNextQuestion, answers, cu
     const [isFocused, setIsFocused] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
     const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState(null)
 
     const handleFocus = () => {
         setIsFocused(true);
     };
-    const handleNextQuestion = () => {
-        if (selectedOption == null) {
-            return;
+
+    const handleNextQuestion = (questionType) => {
+        if (questionType == "text") {
+            setErrorMessage(null);
+            onNextQuestion(answer);
+            setAnswer('');
+        } else {
+            if (selectedOption == null) {
+                setErrorMessage("Please select your answer.")
+                return;
+            }
+            setErrorMessage(null);
+            onNextQuestion(answer);
+            setAnswer('');
+            setSelectedOption(null);
         }
-        onNextQuestion(answer);
-        setAnswer('');
     };
 
     const clickOption = (option) => {
@@ -51,7 +62,16 @@ const Question = ({ question, questionType, options, onNextQuestion, answers, cu
                         value={answer}
                         onChange={(e) => setAnswer(e.target.value)}
                     /> */}
-                    <TextField id="standard-basic" variant="standard" label="Your Answer" value={answer} onChange={(e) => setAnswer(e.target.value)} style={{ minWidth: '500px', color: 'black', colorScheme: 'black' }} autoComplete='off' />
+                    <TextField
+                        id="standard-basic"
+                        variant="standard"
+                        label="Your Answer"
+                        value={answer}
+                        onChange={(e) => setAnswer(e.target.value)}
+                        style={{ minWidth: '500px', color: 'black', colorScheme: 'black' }}
+                        autoComplete='off'
+                        required
+                    />
                 </>
 
             )}
@@ -106,7 +126,12 @@ const Question = ({ question, questionType, options, onNextQuestion, answers, cu
                 {/* {currentPage === 3 ? (
                     <Button variant="contained" style={{ backgroundColor: "black" }} onClick={clickSubmit}>Submit</Button>
                 ) : ( */}
-                <Button variant="contained" style={{ backgroundColor: "black" }} onClick={handleNextQuestion}>Next</Button>
+                {(errorMessage && (questionType === 'options2' || questionType === 'options1')) && (
+                    <div className="pwd_err ui negative mini message" style={{marginBottom: "1.5rem"}}>
+                        {errorMessage}
+                    </div>
+                )}
+                <Button variant="contained" style={{ backgroundColor: "black" }} onClick={() => handleNextQuestion(questionType)}>Next</Button>
                 {/* )} */}
             </div>
         </div>

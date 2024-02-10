@@ -109,6 +109,7 @@ const Register = () => {
                                 value={formData.firstName}
                                 required
                                 fullWidth
+                                autoComplete="off"
                             />
                         </div>
 
@@ -123,6 +124,7 @@ const Register = () => {
                                 value={formData.lastName}
                                 required
                                 fullWidth
+                                autoComplete="off"
                             />
                         </div>
 
@@ -137,6 +139,7 @@ const Register = () => {
                                 value={formData.email}
                                 required
                                 fullWidth
+                                autoComplete="off"
                             />
                         </div>
                     </div>
@@ -152,6 +155,7 @@ const Register = () => {
                                 value={formData.password}
                                 required
                                 fullWidth
+                                autoComplete="off"
                             />
                         </div>
 
@@ -166,6 +170,7 @@ const Register = () => {
                                 value={formData.confirmPwd}
                                 required
                                 fullWidth
+                                autoComplete="off"
                             />
                         </div>
                     </div>
