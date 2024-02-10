@@ -7,7 +7,6 @@ import Register from "./components/register/Register";
 import Landing from "./components/landing/Landing";
 import Navbar from "./components/navbar/Navbar";
 import Form from "./components/form/Form";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
 
 function App() {

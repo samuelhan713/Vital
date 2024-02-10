@@ -9,8 +9,8 @@ import './question.css';
 const questions = [
     { question: 'What is your sex?', questionType: 'options1', options: ['I am a male.', 'I am a female.', 'Other'] },
     { question: 'Do you meet the age requirement?', questionType: 'options2', options: ['I am older than 6 years old.', 'I am filling this out for a child younger than 6 years old.'] },
-    { question: 'Question 2', questionType: 'text' },
-    { question: 'Question 3', questionType: 'text' }
+    { question: 'Are you allergic to any medication?', questionType: 'text' },
+    { question: 'Please write down any internal bodily functions you would like to improve.', questionType: 'text' }
 ];
 
 const Form = () => {
