@@ -9,7 +9,7 @@
 // });
 
 const { spawn } = require('child_process')
-const childPython = spawn ('python3', ['check.py'])
+const childPython = spawn ('python3', ['check.py', 14, 'Vega', false])
 
 childPython.stdout.on('data',(data) => {
     console.log(`stdout: ${data}`)
