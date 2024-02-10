@@ -1,8 +1,13 @@
 .btn_container {
-    background-color: rgba(75, 86, 96, 0.585);
+    background-color: rgba(207, 207, 207, 0.585);
     padding: 0.5rem 1rem 0.5rem 1rem;
     border-radius: 0.3rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+    font-weight: 100;
 }
 
 .btn_container:hover {

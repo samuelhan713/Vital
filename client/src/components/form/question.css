@@ -1,0 +1,101 @@
+/* QuestionPage.css */
+
+.question-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.questions-bottom {
+    margin-top: 2rem;
+}
+
+.options-container {
+    display: flex;
+}
+
+.other {
+    padding: 1rem;
+    /* Adjust padding as needed */
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #f0f0f0; */
+    /* Use your preferred background color */
+    border-radius: 1rem;
+    /* Adjust border-radius as needed */
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    /* Use your preferred text color */
+    transition: background-color 0.3s, transform 0.3s;
+    border: solid black 1px;
+    width: 100px;
+
+    &:hover {
+        /* background-color: #e0e0e0; */
+        /* Use your preferred hover background color */
+        transform: scale(1.02);
+    }
+}
+
+.custom-link {
+    padding: 4rem;
+    /* Adjust padding as needed */
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #f0f0f0; */
+    /* Use your preferred background color */
+    border-radius: 1.5rem;
+    /* Adjust border-radius as needed */
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    /* Use your preferred text color */
+    transition: background-color 0.3s, transform 0.3s;
+    border: solid black 1px;
+    width: 250px;
+    height: 230px;
+
+    &:hover {
+        /* background-color: #e0e0e0; */
+        /* Use your preferred hover background color */
+        transform: scale(1.02);
+    }
+}
+
+.selected {
+    outline: 2px solid black;
+    /* Add your preferred outline style */
+}
+
+#boy {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+#girl {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+#man {
+    width: 100px;
+    margin-bottom: 1rem;
+
+}
+
+#woman {
+    width: 140px;
+    margin-bottom: 1rem;
+}

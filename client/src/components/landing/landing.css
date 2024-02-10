@@ -24,7 +24,7 @@
     position: absolute;
     top: 18rem;
     left: 15rem;
-    font-size: 80px;
+    font-size: 90px;
     font-family: Poppins;
     color: white;
 }
@@ -33,14 +33,14 @@
     position: absolute;
     top: 23rem;
     left: 15rem;
-    font-size: 80px;
+    font-size: 90px;
     font-family: Poppins;
     color: white;
 }
 
 .landing_get_started {
     position: absolute;
-
-    top: 26rem;
-    left: 15rem;
+    top: 25.5rem;
+    left: 15.5rem;
+    background-color: white;
 }
