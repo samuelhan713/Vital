@@ -3,26 +3,23 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #efeded;
 }
 
 .registration-form-sub-container {
-  padding: 100px 300px;
-  /* background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); */
-  background: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%);
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .registration-form {
-  border: 2px solid #ccc;
   border-radius: 10px;
   padding: 20px;
-  background-color: aliceblue;
   width: 400px;
 }
 
 .registration-form div {
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .registration-form label {
@@ -33,4 +30,10 @@
 .buttons {
   display: flex;
   justify-content: space-between;
+}
+
+.registration-form-container h1 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 1000;
 }

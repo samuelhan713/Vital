@@ -14,10 +14,10 @@ const Landing = () => {
                 <div className='landing_inner'>
                     <div className='landing_titles'>
                         <div className='landing_title_first'>
-                            Get
+                            Stay
                         </div>
                         <div className='landing_title_second'>
-                            Meds
+                            Healthy
                         </div>
                         <Button onClick={() => navigate('/register')} className='landing_get_started' variant="text" style={{ color: 'white', backgroundColor: 'gray', padding: '4px 6px 4px 6px', fontWeight: 'bold' }}
                         >Get started</Button>
