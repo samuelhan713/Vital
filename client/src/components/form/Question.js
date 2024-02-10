@@ -108,7 +108,7 @@ const Question = ({ question, questionType, options, onNextQuestion, answers, cu
                             // onClick={() => clickOption(option)}
                             onClick={() => clickOption(options[0])}
                         >
-                            <img id={answers[0] === "I am a male." ? "man" : "woman"} src={answers[0] === "I am a male." ? man : woman}></img>
+                            <img id={answers[0] === "Male" ? "man" : "woman"} src={answers[0] === "Male" ? man : woman}></img>
                             {options[0]}
                         </div>
                         <div
@@ -117,7 +117,7 @@ const Question = ({ question, questionType, options, onNextQuestion, answers, cu
                             onClick={() => clickOption(options[1])}
                         >
 
-                            <img id={answers[0] === "I am a male." ? "boy" : "girl"} src={answers[0] === "I am a male." ? boy : girl}></img>
+                            <img id={answers[0] === "Male" ? "boy" : "girl"} src={answers[0] === "Male" ? boy : girl}></img>
                             {options[1]}
                         </div></>
                 </div>
@@ -127,7 +127,7 @@ const Question = ({ question, questionType, options, onNextQuestion, answers, cu
                     <Button variant="contained" style={{ backgroundColor: "black" }} onClick={clickSubmit}>Submit</Button>
                 ) : ( */}
                 {(errorMessage && (questionType === 'options2' || questionType === 'options1')) && (
-                    <div className="pwd_err ui negative mini message" style={{marginBottom: "1.5rem"}}>
+                    <div className="pwd_err ui negative mini message" style={{ marginBottom: "1.5rem" }}>
                         {errorMessage}
                     </div>
                 )}

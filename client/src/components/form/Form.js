@@ -4,13 +4,12 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
-
 import Question from './Question';
 import './question.css';
 import { createQuestionAPIMethod } from "../../api/question";
 import Lottie from "lottie-react";
 import landingData1 from "../../assets/Lottie/ProcessIndicator.json";
-
+import Loader from '../loader/Loader';
 
 // const questions = ['How old are you?', 'What is your sex?', 'Are you allergic to any medication?']; // Add your questions
 const questions = [
@@ -27,7 +26,7 @@ const Form = () => {
     const navigate = useNavigate();
     const [submitLoading, setSubmitLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
-
+    const [loadingAnimation, setLoadingAnimation] = useState(false);
     const { userId } = useParams();
     const authUserId = useSelector((state) => state.user.id)
 
@@ -73,12 +72,16 @@ const Form = () => {
             .finally(() => {
                 setSubmitLoading(false);
             });
-        navigate('/recommendation');
+        // navigate('/recommendation');
+        setLoadingAnimation(true);
+
     }
 
     return (
         <div className="Form">
-            {console.log("answers: ", answers)}
+            {loadingAnimation && (
+                <Loader />
+            )}
             {currentPage < questions.length ? (
                 <Question
                     question={questions[currentPage].question}
@@ -92,35 +95,40 @@ const Form = () => {
             ) : (
                 <div className='review-container'>
                     <div className='review'>
-                        <h1>Thank you for your cooperation.</h1>
-                        <ul>
-                            {answers.map((answer, index) => (
-                                <>
-                                    <div>{`${questions[index].question}`}</div>
-                                    <div>A. {`${answer}`}</div>
-                                    <br></br>
-                                </>
-                            ))}
-                        </ul>
+                        <h1 className={loadingAnimation ? "loading_title" : ""}>Thank you for your cooperation.</h1>
+                        {!loadingAnimation && (
+                            <>
+                                <ul>
+                                    {answers.map((answer, index) => (
+                                        <>
+                                            <div>{`${questions[index].question}`}</div>
+                                            <div>A. {`${answer}`}</div>
+                                            <br></br>
+                                        </>
+                                    ))}
+                                </ul>
 
-                        {errorMessage && (
-                            <div className="pwd_err ui negative mini message">
-                                {errorMessage}
-                            </div>
+                                {errorMessage && (
+                                    <div className="pwd_err ui negative mini message">
+                                        {errorMessage}
+                                    </div>
+                                )}
+
+                                {submitLoading ? (
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            justifyContent: "space-around",
+                                        }}
+                                    >
+                                        <Lottie animationData={landingData1} style={style} />
+                                    </div>
+                                ) : (
+                                    <Button variant="contained" style={{ backgroundColor: "black" }} onClick={handleSubmit}>Submit</Button>
+                                )}
+                            </>
                         )}
 
-                        {submitLoading ? (
-                            <div
-                                style={{
-                                    display: "flex",
-                                    justifyContent: "space-around",
-                                }}
-                            >
-                                <Lottie animationData={landingData1} style={style} />
-                            </div>
-                        ) : (
-                            <Button variant="contained" style={{ backgroundColor: "black" }} onClick={handleSubmit}>Submit</Button>
-                        )}
                     </div>
                 </div>
             )}

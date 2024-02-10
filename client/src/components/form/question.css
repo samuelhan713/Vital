@@ -125,3 +125,8 @@
 .pwd_err {
     color: red;
 }
+
+.loading_title {
+    position: absolute;
+    top: 12rem;
+}
