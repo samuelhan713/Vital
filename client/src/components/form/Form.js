@@ -14,7 +14,7 @@ import landingData1 from "../../assets/Lottie/ProcessIndicator.json";
 
 // const questions = ['How old are you?', 'What is your sex?', 'Are you allergic to any medication?']; // Add your questions
 const questions = [
-    { question: 'What is your sex?', questionType: 'options1', options: ['Male.', 'Female.', 'Other'] },
+    { question: 'What is your sex?', questionType: 'options1', options: ['Male', 'Female', 'Other'] },
     { question: 'Do you meet the age requirement?', questionType: 'options2', options: ['I am older than 6 years old.', 'I am filling this out for a child younger than 6 years old.'] },
     // { question: 'Do you meet the age requirement?', questionType: 'options2', options: [true, false] },
     { question: 'Are you allergic to any medication?', questionType: 'text' },
@@ -73,6 +73,7 @@ const Form = () => {
             .finally(() => {
                 setSubmitLoading(false);
             });
+        navigate('/recommendation');
     }
 
     return (
@@ -91,10 +92,14 @@ const Form = () => {
             ) : (
                 <div className='review-container'>
                     <div className='review'>
-                        <h1>We appreciate your cooperation.</h1>
+                        <h1>Thank you for your cooperation.</h1>
                         <ul>
                             {answers.map((answer, index) => (
-                                <div>{`${index + 1}. ${answer}`}</div>
+                                <>
+                                    <div>{`${questions[index].question}`}</div>
+                                    <div>A. {`${answer}`}</div>
+                                    <br></br>
+                                </>
                             ))}
                         </ul>
 

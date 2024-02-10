@@ -8,6 +8,7 @@ import Landing from "./components/landing/Landing";
 import Navbar from "./components/navbar/Navbar";
 import Form from "./components/form/Form";
 import './App.css';
+import Recommendation from "./components/recommendation/Recommendation";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
@@ -27,6 +28,7 @@ function App() {
           <Route path="/mainpage" element={<MainPage />} />
           <Route path="/landing" element={<Landing />} />
           <Route path="/form/:userId" element={<Form />} />
+          <Route path="/recommendation" element={<Recommendation />} />
         </Routes>
       </Router>
     </div>
