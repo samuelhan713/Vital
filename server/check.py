@@ -113,4 +113,7 @@ if(sys.argv[3]):
     analysed_df = new_df  
     
 
-analysed_df.to_json(r'./output.json')
+# analysed_df.to_json(r'./output.json')
+result = analysed_df.to_json(orient="split")
+parsed = json.loads(result)
+print(json.dumps(parsed, indent=4))
