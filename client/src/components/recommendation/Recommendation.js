@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { getRecommendationAPIMethod, updateQuestionAPIMethod } from "../../api/question";
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
+import Loader from '../loader/Loader';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.js',
@@ -83,7 +84,15 @@ const Recommendation = () => {
                 <div>To main page</div>
             </div>
             <div className='recommendation_outer'>
-                {recList && (
+                {console.log("reclist?: ", recList)}
+                {recList.length == 0 && (
+                    <>
+                    <h1 className='loading_title'>Collecting results...</h1>
+                    <p className='loading_subtext'>(This may take up to 10 seconds)</p>
+                    <Loader />
+                    </>
+                )}
+                {recList.length != 0 && (
                     <>
                         <h1>Recommendations ({recList.length})</h1>
                         <div className='recommendation_container'>
@@ -109,11 +118,7 @@ const Recommendation = () => {
                                     </div>
                                 </div>
                             ))}
-                        </div>
-                    </>
-                )}
-            </div>
-            <div className="buttons">
+                            <div className="buttons">
                 <Button
                     variant="contained"
                     style={{ backgroundColor: "#ff395c", height: "40px"}}
@@ -129,6 +134,11 @@ const Recommendation = () => {
                     Cancel
                 </Button>
             </div>
+                        </div>
+                    </>
+                )}
+            </div>
+            
         </div>
     )
 }
