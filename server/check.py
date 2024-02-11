@@ -120,6 +120,13 @@ if(sys.argv[3]):
     for index, row in on_rec.iterrows():
         new_df = pd.concat([new_df,analysed_df[analysed_df["Market Status"].str.contains(row['Market Status'],case=False)]])
     analysed_df = new_df  
+
+inp = sys.argv[5]
+inp = inp.replace(" ","")
+inp = inp.split(",")
+for item in inp:
+    item = item.strip()
+    
     
 allergic_food_dict={'peanuts':['peanuts'],
                     'nuts':['nuts','Walnuts', 'almonds', 'cashews', 'pistachios', 'pecans', 'hazelnuts'],
@@ -144,7 +151,7 @@ allergic_food_dict={'peanuts':['peanuts'],
 
 allergy_list = []
 
-if(len(sys.argv[5]) != 0):
+if(len(inp) != 0):
     for values in ["milk", "egg","fish"]:
         for key, val in allergic_food_dict.items():
             if values in val:
