@@ -45,7 +45,7 @@ const Form = () => {
         setCurrentPage(currentPage + 1);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         setSubmitLoading(true);
 
         const question = {
@@ -56,24 +56,20 @@ const Form = () => {
             user_id: authUserId,
         };
 
-        // createQuestionAPIMethod(question)
-        //     .then((response) => {
-        //         if (response.ok) {
-        //             console.log("A form has been submitted.");
-        //         } else {
-        //             setErrorMessage("Error submitting the form. Please try again.");
-        //         }
-        //     })
-        //     .catch((err) => {
-        //         console.error("Error during submission:", err);
-        //         setErrorMessage("Something went wrong during submission. Please try again.");
-        //     })
-        //     .finally(() => {
-        //         setSubmitLoading(false);
-        //     });
-        // navigate('/recommendation');
+        await createQuestionAPIMethod(question)
+            .then(response => response.json())
+            .then(data => {
+                navigate(`/recommendation/${data._id}/${data.age}/${data.description}`);
+            })
+            .catch((err) => {
+                console.error("Error during submission:", err);
+                setErrorMessage("Something went wrong during submission. Please try again.");
+            })
+            .finally(() => {
+                setSubmitLoading(false);
+            });
+
         setLoadingAnimation(true);
-        // navigate(`/recommendation/${question.age}/${question.description}`);
     }
 
     useEffect(() => {

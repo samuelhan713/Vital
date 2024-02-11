@@ -86,3 +86,8 @@
 .recommendation_object_bottom_bottom:hover .hidden_div {
     display: block;
 }
+
+.buttons {
+    padding: 0 0 0 2rem;
+    width: 180px;
+}

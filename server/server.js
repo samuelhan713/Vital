@@ -26,7 +26,7 @@ app.get('/run-python/:age/:description', (req, res) => {
   age = age.charAt(0).toUpperCase() + age.slice(1);
   // const command = `python check.py ${age} "Vega" False "${description}"`;
   // const description = "My bones feel weak.";
-  exec(`python check.py ${age} "Vega" False "${description}"`, (error, stdout, stderr) => {
+  exec(`python check.py ${age} "Vega" False "${description}" "fish"`, {maxBuffer: undefined}, (error, stdout, stderr) => {
     if (error) {
       console.error(`Error executing Python script: ${error}`);
       return res.status(501).json({ error: 'Description is not specific enough, hence, no detection.' });
