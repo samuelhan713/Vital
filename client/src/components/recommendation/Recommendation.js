@@ -20,7 +20,7 @@ const Recommendation = () => {
         .then(response => response.json())
         .then(data => {
             setRecommendation(data);
-            if (data !== null) {
+            if (data !== null && data.data !== undefined) {
                 setRecList(data.data.slice(0, 10));
             }
         })
@@ -28,24 +28,31 @@ const Recommendation = () => {
     
     return (
         <div className='recommendation'>
+            {console.log('reclist: ', recList)}
             <Navbar />
             <div className='to_mainpage' onClick={() => navigate('/mainpage')}>
                 <KeyboardBackspaceIcon />
                 <div>To main page</div>
             </div>
             <div className='recommendation_outer'>
-                <h1>Recommendations ({data.length})</h1>
-                <div className='recommendation_container'>
-                    {data.map((d) => (
-                        <div className='recommendation_object'>
-                            <div>{d.img}</div>
-                            <div className='recommendation_object_bottom'>
-                                <h1>{d.title}</h1>
-                                <p>{d.description}</p>
+                {recList && (
+                    <>
+                    <h1>Recommendations ({recList.length})</h1>
+                    <div className='recommendation_container'>
+                        {recList.map((d) => (
+                            <div className='recommendation_object'>
+                                <div>{d.img}</div>
+                                <div className='recommendation_object_bottom'>
+                                    <h1>{d[2]}</h1>
+                                    <p>By {d[3]}</p>
+                                    <p>{d[13]}</p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                    </>
+                )}
+                
             </div>
         </div>
     )
