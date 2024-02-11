@@ -15,8 +15,8 @@ import Loader from '../loader/Loader';
 const questions = [
     { question: 'What is your sex?', questionType: 'options1', options: ['Male', 'Female', 'Other'] },
     { question: 'Do you meet the age requirement?', questionType: 'options2', options: ['I am older than 6 years old.', 'I am filling this out for a child younger than 6 years old.'] },
-    { question: 'Are you allergic to any medication?', questionType: 'text' },
-    { question: 'Please write down any internal bodily functions you would like to improve.', questionType: 'text' }
+    { question: 'Do you have any allergies? If so, please write them down?', questionType: 'text' },
+    { question: 'How do you want to improve your health or what health issues do you have?.', questionType: 'text' }
 ];
 
 const Form = () => {
