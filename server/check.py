@@ -116,6 +116,47 @@ if(sys.argv[3]):
         new_df = pd.concat([new_df,analysed_df[analysed_df["Market Status"].str.contains(row['Market Status'],case=False)]])
     analysed_df = new_df  
     
+allergic_food_dict={'peanuts':['peanuts'],
+                    'nuts':['nuts','Walnuts', 'almonds', 'cashews', 'pistachios', 'pecans', 'hazelnuts'],
+                    'milk':['cheese','butter', 'yogurt', 'milk', 'dairy'],
+                    'eggs':['chicken','egg','eggs'],
+                    'fish':['fish','salmon', 'tuna', 'halibut'],
+                    'shellfish':['shellfish','shrimp', 'crab', 'lobster', 'mussel'],
+                    'wheat':['bread', 'wheat', 'pasta', 'baked'],
+                    'soy':['soy', 'tofu'],
+                    'mustard':['mustard', 'mustard seed'],
+                    'sesame':['sesame', 'sesame oil', 'sesame seed'],
+                    'celery':['celery'],
+                    'sulfites':['sulfite'],
+                    'lupin':['lupin'],
+                    'mollusks':['octapus', 'squid', 'cuttlefish'],
+                    'kiwi':['kiwi'],
+                    'pineapple':['pineapple'],
+                    'avocado':['avocado', 'guacamole'],
+                    'banana':['banana'],
+                    'strawberries':['strawberry'],
+                    'tomato':['tomato']}
+
+allergy_list = []
+
+if(len(sys.argv[4]) != 0):
+    for values in ["milk", "egg","fish"]:
+        for key, val in allergic_food_dict.items():
+            if values in val:
+                allergy_list.append(key)
+
+    final_tab_copy = analysed_df.copy()
+    flag = True
+    for index, row in analysed_df.iterrows():
+        for key in allergy_list:
+            if(flag):
+                flag = False
+                # pdb.set_trace()
+                final_tab_copy = analysed_df[analysed_df["Other Ingredients"].str.contains(key,case=False,na=False)==False]
+                # if(final_tab[final_tab["Other Ingredients"].str.contains(key,case=False,na=False)]):
+            else:
+                final_tab_copy = pd.concat([final_tab_copy,analysed_df[analysed_df["Other Ingredients"].str.contains(key,case=False,na=False)==False]],join="inner",axis=0)
+    analysed_df = final_tab_copy
 
 # analysed_df.to_json(r'./output.json')
 result = analysed_df.to_json(orient="split")
