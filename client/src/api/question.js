@@ -23,3 +23,15 @@ export const getRecommendationAPIMethod = (age, description) => {
   });
   return response;
 };
+
+// UPDATE A QUESTION
+export const updateQuestionAPIMethod = (questionId, recList) => {
+  return fetch(
+    `http://localhost:3001/api/questions/updateQuestion/${questionId}`,
+    {
+      ...defaultHeaders,
+      method: "PUT", // The method defaults to GET
+      body: JSON.stringify(recList),
+    }
+  );
+};

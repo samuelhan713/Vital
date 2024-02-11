@@ -51,3 +51,8 @@
 .to_mainpage:hover {
     text-decoration: none;
 }
+
+.buttons {
+    padding: 0 0 0 2rem;
+    width: 180px;
+}

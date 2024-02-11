@@ -33,7 +33,7 @@ function App() {
           <Route path="/landing" element={<Landing />} />
           <Route path="/form/:userId" element={<Form />} />
           <Route path="/mainpagedetails/:postId" element={<MainpageDetails />} />
-          <Route path="/recommendation/:age/:description" element={<Recommendation />} />
+          <Route path="/recommendation/:questionId/:age/:description" element={<Recommendation />} />
         </Routes>
       </div>
     </Router>

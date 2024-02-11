@@ -53,6 +53,25 @@ const createQuestion = async (req, res) => {
   }
 };
 
+// UPDDATE A QUESTION
+const updateQuestion = async (req, res) => {
+  try {
+    const { questionId } = req.params;
+    const { recList } = req.body;
+
+    const updatedQuestion = await Question.findByIdAndUpdate(
+      questionId,
+      {
+        rec_list: recList,
+      },
+      { new: true }
+    );
+    res.status(200).json(updatedQuestion);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
+
 // Delete a question
 const deleteQuestion = async (req, res) => {
   try {
@@ -69,5 +88,6 @@ module.exports = {
   getMyQuestion: getMyQuestion,
   getMyQuestions: getMyQuestions,
   createQuestion: createQuestion,
+  updateQuestion: updateQuestion,
   deleteQuestion: deleteQuestion,
 };

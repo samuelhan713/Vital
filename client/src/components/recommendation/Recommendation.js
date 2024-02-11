@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 import Navbar from '../navbar/Navbar';
 import './recommendation.css';
 import boy from "../../assets/images/boy.svg";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { useNavigate } from "react-router-dom";
-import { getRecommendationAPIMethod } from "../../api/question";
+import { getRecommendationAPIMethod, updateQuestionAPIMethod } from "../../api/question";
     
 
 const Recommendation = () => {
     const [recommendation, setRecommendation] = useState(null);
     const [recList, setRecList] = useState([]); // top 10 recommendation
-    const { age, description } = useParams();
+    const { questionId, age, description } = useParams();
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -25,6 +26,20 @@ const Recommendation = () => {
             }
         })
     }, []);
+
+    const handleUpdateQuestion = () => {
+        updateQuestionAPIMethod(questionId, recList)
+            .then((response) => {
+                if (response.ok) {
+                    console.log("Recommendation record has been saved.");
+                } else {
+                    console.log("Error saving recommendation.");
+                }
+            })
+            .catch((err) => {
+                console.error("Error when saving recommendation:", err);
+            })
+    }
     
     return (
         <div className='recommendation'>
@@ -52,7 +67,22 @@ const Recommendation = () => {
                     </div>
                     </>
                 )}
-                
+            </div>
+            <div className="buttons">
+                <Button
+                    variant="contained"
+                    style={{ backgroundColor: "#ff395c", height: "40px"}}
+                    onClick={handleUpdateQuestion}
+                >
+                    Save
+                </Button>
+                <Button
+                    variant="contained"
+                    style={{ backgroundColor: "#ff395c", height: "40px"}}
+                    onClick={() => navigate('/mainpage')}
+                >
+                    Cancel
+                </Button>
             </div>
         </div>
     )
