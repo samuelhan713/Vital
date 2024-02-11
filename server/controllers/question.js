@@ -37,8 +37,6 @@ const createQuestion = async (req, res) => {
   try {
     const { gender, age, allergies, description, user_id } = req.body;
 
-    console.log(gender, age, allergies, description, user_id);
-
     const newQuestion = new Question({
       gender,
       age,

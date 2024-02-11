@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 
 import Question from './Question';
 import './question.css';
-import { createQuestionAPIMethod } from "../../api/question";
+import { createQuestionAPIMethod, getRecommendationAPIMethod } from "../../api/question";
 import Lottie from "lottie-react";
 import landingData1 from "../../assets/Lottie/ProcessIndicator.json";
 
@@ -16,7 +16,6 @@ import landingData1 from "../../assets/Lottie/ProcessIndicator.json";
 const questions = [
     { question: 'What is your sex?', questionType: 'options1', options: ['Male', 'Female', 'Other'] },
     { question: 'Do you meet the age requirement?', questionType: 'options2', options: ['I am older than 6 years old.', 'I am filling this out for a child younger than 6 years old.'] },
-    // { question: 'Do you meet the age requirement?', questionType: 'options2', options: [true, false] },
     { question: 'Are you allergic to any medication?', questionType: 'text' },
     { question: 'Please write down any internal bodily functions you would like to improve.', questionType: 'text' }
 ];
@@ -73,7 +72,7 @@ const Form = () => {
             .finally(() => {
                 setSubmitLoading(false);
             });
-        navigate('/recommendation');
+        navigate(`/recommendation/${question.age}/${question.description}`);
     }
 
     return (

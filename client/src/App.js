@@ -31,7 +31,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/landing" element={<Landing />} />
           <Route path="/form/:userId" element={<Form />} />
-          <Route path="/recommendation" element={<Recommendation />} />
+          <Route path="/recommendation/:age/:description" element={<Recommendation />} />
         </Routes>
       </div>
     </Router>

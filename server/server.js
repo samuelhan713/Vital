@@ -18,12 +18,18 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/questions", questionRoutes);
 
-app.get('/run-python', (req, res) => {
+app.get('/run-python/:age/:description', (req, res) => {
   // Execute the Python script
-  exec('python check.py 4 "Vega" False', (error, stdout, stderr) => {
+  let { age, description } = req.params;
+  // let age = "true";
+  // const description = "My eyes feel dry.";
+  age = age.charAt(0).toUpperCase() + age.slice(1);
+  // const command = `python check.py ${age} "Vega" False "${description}"`;
+  // const description = "My bones feel weak.";
+  exec(`python check.py ${age} "Vega" False "${description}"`, (error, stdout, stderr) => {
     if (error) {
       console.error(`Error executing Python script: ${error}`);
-      return res.status(500).json({ error: 'Internal Server Error' });
+      return res.status(501).json({ error: 'Description is not specific enough, hence, no detection.' });
     }
 
     // Assuming the Python script prints a JSON result to stdout
