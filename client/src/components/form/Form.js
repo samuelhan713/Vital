@@ -56,35 +56,36 @@ const Form = () => {
             user_id: authUserId,
         };
 
-        createQuestionAPIMethod(question)
-            .then((response) => {
-                if (response.ok) {
-                    console.log("A form has been submitted.");
-                } else {
-                    setErrorMessage("Error submitting the form. Please try again.");
-                }
-            })
-            .catch((err) => {
-                console.error("Error during submission:", err);
-                setErrorMessage("Something went wrong during submission. Please try again.");
-            })
-            .finally(() => {
-                setSubmitLoading(false);
-            });
+        // createQuestionAPIMethod(question)
+        //     .then((response) => {
+        //         if (response.ok) {
+        //             console.log("A form has been submitted.");
+        //         } else {
+        //             setErrorMessage("Error submitting the form. Please try again.");
+        //         }
+        //     })
+        //     .catch((err) => {
+        //         console.error("Error during submission:", err);
+        //         setErrorMessage("Something went wrong during submission. Please try again.");
+        //     })
+        //     .finally(() => {
+        //         setSubmitLoading(false);
+        //     });
         // navigate('/recommendation');
         setLoadingAnimation(true);
-        navigate(`/recommendation/${question.age}/${question.description}`);
+        // navigate(`/recommendation/${question.age}/${question.description}`);
     }
 
     useEffect(() => {
         // Set a timeout to hide the component after 5000 milliseconds (5 seconds)
+        const age = answers[1] === questions[1].options[0] ? true : false;
+        const description = answers[3];
         if (loadingAnimation) {
             console.log("YEE");
             const timeoutId = setTimeout(() => {
                 setLoadingAnimation(false);
-                navigate('/recommendation');
+                navigate(`/recommendation/${age}/${description}`);
             }, 5000);
-
             // Cleanup the timeout when the component is unmounted
             return () => clearTimeout(timeoutId);
         }
