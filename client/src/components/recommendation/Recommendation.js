@@ -63,7 +63,10 @@ const Recommendation = () => {
     }, []);
 
     const handleUpdateQuestion = () => {
-        updateQuestionAPIMethod(questionId, recList)
+        const rec_list = {
+            rec_list: recList
+        };
+        updateQuestionAPIMethod(questionId, rec_list)
             .then((response) => {
                 if (response.ok) {
                     console.log("Recommendation record has been saved.");
@@ -79,9 +82,9 @@ const Recommendation = () => {
     return (
         <div className='recommendation'>
             <Navbar />
-            <div className='to_mainpage' onClick={() => navigate('/mainpage')}>
+            <div className='to_mainpage' onClick={() => {handleUpdateQuestion(); navigate('/mainpage')}}>
                 <KeyboardBackspaceIcon />
-                <div>To main page</div>
+                <div>Save & Exit</div>
             </div>
             <div className='recommendation_outer'>
                 {console.log("reclist?: ", recList)}
@@ -118,22 +121,6 @@ const Recommendation = () => {
                                     </div>
                                 </div>
                             ))}
-                            <div className="buttons">
-                <Button
-                    variant="contained"
-                    style={{ backgroundColor: "#ff395c", height: "40px"}}
-                    onClick={handleUpdateQuestion}
-                >
-                    Save
-                </Button>
-                <Button
-                    variant="contained"
-                    style={{ backgroundColor: "#ff395c", height: "40px"}}
-                    onClick={() => navigate('/mainpage')}
-                >
-                    Cancel
-                </Button>
-            </div>
                         </div>
                     </>
                 )}

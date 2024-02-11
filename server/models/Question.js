@@ -24,7 +24,8 @@ const QuestionSchema = new mongoose.Schema({
     required: true,
   },
   rec_list: {
-    type: Object,
+    type: Array,
+    default: [],
   }
 });
 const Question = mongoose.model("Question", QuestionSchema);

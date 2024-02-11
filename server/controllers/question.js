@@ -57,14 +57,13 @@ const createQuestion = async (req, res) => {
 const updateQuestion = async (req, res) => {
   try {
     const { questionId } = req.params;
-    const { recList } = req.body;
+    const { rec_list } = req.body;
 
     const updatedQuestion = await Question.findByIdAndUpdate(
       questionId,
       {
-        rec_list: recList,
-      },
-      { new: true }
+        rec_list: rec_list,
+      }
     );
     res.status(200).json(updatedQuestion);
   } catch (err) {
