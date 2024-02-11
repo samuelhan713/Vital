@@ -13,6 +13,7 @@ import { useLocation } from 'react-router-dom';
 const Navbar = () => {
     const navigate = useNavigate();
     const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+    console.log(isAuthenticated);
     const dispatch = useDispatch();
 
     const handleLogout = () => {
