@@ -15,23 +15,26 @@ function App() {
   console.log(isAuthenticated);
 
   return (
-    <div className="App">
-      <Router>
+    <Router>
+      <div className="App">
         <Routes>
           <Route
             path="/"
             element={isAuthenticated ? <MainPage /> : <Landing />}
           />
-          <Route path="/mainpage" element={<MainPage />} />
+          <Route
+            path="/mainpage"
+            element={isAuthenticated ? <MainPage /> : <Landing />}
+          />
+          {/* <Route path="/mainpage" element={<MainPage />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/mainpage" element={<MainPage />} />
           <Route path="/landing" element={<Landing />} />
           <Route path="/form/:userId" element={<Form />} />
           <Route path="/recommendation" element={<Recommendation />} />
         </Routes>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 
