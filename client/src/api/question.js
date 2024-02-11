@@ -4,6 +4,18 @@ const defaultHeaders = {
   },
 };
 
+// GET ALL QUESTIONS BY USERID
+export const getMyQuestionsAPIMethod = (currentUserId) => {
+  const res = fetch(
+    `http://localhost:3001/api/questions/myQuestions/${currentUserId}`,
+    {
+      ...defaultHeaders,
+      method: "GET",
+    }
+  );
+  return res;
+};
+
 // CREATING A QUESTION
 export const createQuestionAPIMethod = (question) => {
   const response = fetch("http://localhost:3001/api/questions/createQuestion", {

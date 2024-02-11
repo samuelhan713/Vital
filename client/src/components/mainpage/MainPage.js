@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../navbar/Navbar';
 import './mainpage.css';
 import boy from "../../assets/images/boy.svg";
 import { Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { getMyQuestionsAPIMethod } from "../../api/question";
 
 const MainPage = () => {
     const navigate = useNavigate();
     const userId = useSelector((state) => state.user.id)
+    const [records, setRecords] = useState([]);
+
+    useEffect(() => {
+        getMyQuestionsAPIMethod(userId)
+        .then(response => response.json())
+        .then(data => {
+            setRecords(data);
+        })
+    }, []);
+
+    console.log("records: ", records); // --> questionare records created by the current logged in user
 
     const data = [
         {
