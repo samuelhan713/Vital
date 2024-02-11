@@ -38,14 +38,99 @@ const MainPage = () => {
             age: false,
             allergies: "vitamin c",
             description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
+        },
+        {
+            user_id: "2",
+            gender: "female",
+            age: false,
+            allergies: "vitamin c",
+            description: "I want stronger bones"
         }
     ];
     return (
         <div className='mainpage'>
             <Navbar />
             <div className='retake'>
-                <Button variant="outlined" onClick={() => { navigate(`/form/${userId}`) }} style={{ color: "black", borderColor: "black", fontWeight: "bold" }}>Retake the questionnaire!</Button>
+                <Button variant="contained" onClick={() => { navigate(`/form/${userId}`) }} style={{ color: "white", borderColor: "black", fontWeight: "bold", backgroundColor: "black", borderRadius: '3rem', padding: "1rem", fontSize: "12px" }}>Retake the questionnaire!</Button>
             </div>
+            <h1>Your History</h1>
             <div className='mainpage_container'>
                 {data.map((d) => (
                     <div className='mainpage_form_data'>

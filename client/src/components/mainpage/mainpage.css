@@ -18,11 +18,18 @@
 }
 
 .mainpage_form_data {
-    padding: 20px;
+    /* padding: 20px;
     background-color: #eee;
     border: 1px solid #ccc;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 5px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: solid 2px black;
+    padding: 3rem;
+    border-radius: 9px;
 }
 
 .mainpage_form_title {
@@ -34,5 +41,11 @@
 }
 
 .retake {
-    margin-top: 2rem;
+    position: fixed;
+    bottom: 5rem;
+    transition: transform 0.08s ease-in-out;
+}
+
+.retake:hover {
+    transform: scale(1.05);
 }
