@@ -47,3 +47,14 @@ export const updateQuestionAPIMethod = (questionId, rec_list) => {
     }
   );
 };
+
+export const getQuestionById = (id) => {
+  const res = fetch(
+    `http://localhost:3001/api/questions/myQuestion/${id}`,
+    {
+      ...defaultHeaders,
+      method: "GET",
+    }
+  );
+  return res;
+};

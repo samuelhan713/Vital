@@ -1,14 +1,16 @@
 .mainpage_details_container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* 4 columns with equal width */
-    gap: 20px;
-    padding: 3rem;
-    /* Adjust the gap between boxes as needed */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 90%;
 }
 
 .mainpage_details {
     margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .mainpage_details_object {
@@ -18,7 +20,7 @@
     flex-direction: column;
     border: solid 2px black;
     padding: 3rem;
-    border-radius: 9px;
+    border-radius: 10px;
     height: 160px;
 }
 

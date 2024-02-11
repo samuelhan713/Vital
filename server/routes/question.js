@@ -9,8 +9,8 @@ router.get("", questions.getAllQuestions);
 // GET QUESTIONS BY USERID
 router.get("/myQuestions/:userId", questions.getMyQuestions);
 
-// GET A QUESTION BY USERID
-router.get("/myQuestion/:userId", questions.getMyQuestion);
+// GET A QUESTION BY QUESTIONID
+router.get("/myQuestion/:questionId", questions.getMyQuestion);
 
 // CREATE A QUESTION
 router.post("/createQuestion", questions.createQuestion);

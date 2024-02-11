@@ -6,6 +6,7 @@ import { Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getMyQuestionsAPIMethod } from "../../api/question";
+import logo2 from "../../assets/images/logo2.png";
 
 const MainPage = () => {
     const navigate = useNavigate();
@@ -14,10 +15,10 @@ const MainPage = () => {
 
     useEffect(() => {
         getMyQuestionsAPIMethod(userId)
-        .then(response => response.json())
-        .then(data => {
-            setRecords(data);
-        })
+            .then(response => response.json())
+            .then(data => {
+                setRecords(data);
+            })
     }, []);
 
     console.log("records: ", records); // --> questionare records created by the current logged in user
@@ -160,14 +161,12 @@ const MainPage = () => {
             </div>
             <h1>Your History</h1>
             <div className='mainpage_container'>
-                {data.map((d) => (
-                    <div className='mainpage_form_data' onClick={() => navigate(`/mainpagedetails/${d.post_id}`)}>
-                        <img src={boy} />
-                        <div className="mainpage_form_title">
-                            {d.allergies}
-                        </div>
+                {console.log("records: ", records)}
+                {records.map((d) => (
+                    <div className='mainpage_form_data' onClick={() => navigate(`/mainpagedetails/${d._id}`)}>
+                        <img src={logo2} />
                         <div className="mainpage_form_description">
-                            {d.description}
+                            Query: {d.description}
                         </div>
                     </div>
                 ))}
