@@ -13,3 +13,13 @@ export const createQuestionAPIMethod = (question) => {
   });
   return response;
 };
+
+// GETTING RECOMMENDATION
+export const getRecommendationAPIMethod = (age, description) => {
+  console.log(age, description);
+  const response = fetch(`http://localhost:3001/run-python/${age}/${description}`, {
+    ...defaultHeaders,
+    method: "GET",
+  });
+  return response;
+};

@@ -23,6 +23,9 @@ const QuestionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  rec_list: {
+    type: Object,
+  }
 });
 const Question = mongoose.model("Question", QuestionSchema);
 module.exports = Question;

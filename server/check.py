@@ -5,8 +5,10 @@ import pandas as pd
 from Bio_Epidemiology_NER.bio_recognizer import ner_prediction
 import pdb
 pd.set_option('display.max_colwidth', 20)
-doc = """
-	CASE: My eyes feel dry.
+
+pa = sys.argv[4]
+doc = f"""
+	CASE: {pa}
       """
 
 analysed = ner_prediction(corpus=doc, compute='cpu')
@@ -14,6 +16,7 @@ analysed = ner_prediction(corpus=doc, compute='cpu')
 
 if(analysed.shape == (0,0)):
     print("Cannot analyse your status: Please be more specific!")
+    sys.exit("args: {}".format(analysed.shape))
     
 analysed_filtered_DPBS = analysed[(analysed["entity_group"]=="Diagnostic_procedure") | (analysed["entity_group"]=="Biological_structure")]
 analysed_filtered_SSLV = analysed[(analysed["entity_group"]=="Sign_symptom") | (analysed["entity_group"]=="Lab_value")]
@@ -54,7 +57,8 @@ if(analysed_df.shape == (0,0)):
         print("No suppliments available that satisfies your requirements")
         sys.exit("Bailing out of the program.")
 
-if(int(sys.argv[1]) <= 6):
+# if(int(sys.argv[1]) <= 6):
+if not sys.argv[1]:
     d = {'Supplement Form [LanguaL]': ['Powder', 'Liquid', 'Gummy or Jelly']}
     child_rec = pd.DataFrame(data=d)
 
