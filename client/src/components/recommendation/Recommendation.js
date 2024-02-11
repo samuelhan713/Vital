@@ -17,17 +17,17 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     import.meta.url,
 ).toString();
 
-    // useEffect(() => {
-    //     getRecommendationAPIMethod(age, description)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             setRecommendation(data);
-    //             if (data !== null && data.data !== undefined) {
-    //                 setRecList(data.data.slice(0, 10));
-    //             }
-    //         })
-    // }, []);
-    
+// useEffect(() => {
+//     getRecommendationAPIMethod(age, description)
+//         .then(response => response.json())
+//         .then(data => {
+//             setRecommendation(data);
+//             if (data !== null && data.data !== undefined) {
+//                 setRecList(data.data.slice(0, 10));
+//             }
+//         })
+// }, []);
+
 
 const Recommendation = () => {
     const [recommendation, setRecommendation] = useState(null);
@@ -50,16 +50,16 @@ const Recommendation = () => {
         return `https://api.ods.od.nih.gov/dsld/s3/pdf/${id}${suffix}`;
     }
     const pdfUrl = 'https://api.ods.od.nih.gov/dsld/s3/pdf/14861.pdf';
-    
+
     useEffect(() => {
         getRecommendationAPIMethod(age, description)
-        .then(response => response.json())
-        .then(data => {
-            setRecommendation(data);
-            if (data !== null && data.data !== undefined) {
-                setRecList(data.data.slice(0, 10));
-            }
-        })
+            .then(response => response.json())
+            .then(data => {
+                setRecommendation(data);
+                if (data !== null && data.data !== undefined) {
+                    setRecList(data.data.slice(0, 10));
+                }
+            })
     }, []);
 
     const handleUpdateQuestion = () => {
@@ -78,11 +78,11 @@ const Recommendation = () => {
                 console.error("Error when saving recommendation:", err);
             })
     }
-    
+
     return (
         <div className='recommendation'>
             <Navbar />
-            <div className='to_mainpage' onClick={() => {handleUpdateQuestion(); navigate('/mainpage')}}>
+            <div className='to_mainpage' onClick={() => { handleUpdateQuestion(); navigate('/mainpage') }}>
                 <KeyboardBackspaceIcon />
                 <div>Save & Exit</div>
             </div>
@@ -90,9 +90,9 @@ const Recommendation = () => {
                 {console.log("reclist?: ", recList)}
                 {recList.length == 0 && (
                     <>
-                    <h1 className='loading_title'>Collecting results...</h1>
-                    <p className='loading_subtext'>(This may take up to 10 seconds)</p>
-                    <Loader />
+                        <h1 className='loading_title'>Collecting results...</h1>
+                        <p className='loading_subtext'>(This may take up to 10 seconds)</p>
+                        <Loader />
                     </>
                 )}
                 {recList.length != 0 && (
@@ -125,7 +125,7 @@ const Recommendation = () => {
                     </>
                 )}
             </div>
-            
+
         </div>
     )
 }
