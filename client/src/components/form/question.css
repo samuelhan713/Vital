@@ -128,5 +128,12 @@
 
 .loading_title {
     position: absolute;
-    top: 12rem;
+    top: 10rem;
+    font-size: 45px;
+}
+
+.loading_subtext {
+    position: absolute;
+    top: 15rem;
+    font-size: small;
 }

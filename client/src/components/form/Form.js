@@ -74,8 +74,22 @@ const Form = () => {
             });
         // navigate('/recommendation');
         setLoadingAnimation(true);
-
     }
+
+    useEffect(() => {
+        // Set a timeout to hide the component after 5000 milliseconds (5 seconds)
+        if (loadingAnimation) {
+            console.log("YEE");
+            const timeoutId = setTimeout(() => {
+                setLoadingAnimation(false);
+                navigate('/recommendation');
+            }, 5000);
+
+            // Cleanup the timeout when the component is unmounted
+            return () => clearTimeout(timeoutId);
+        }
+
+    }, [loadingAnimation]);
 
     return (
         <div className="Form">
@@ -95,9 +109,10 @@ const Form = () => {
             ) : (
                 <div className='review-container'>
                     <div className='review'>
-                        <h1 className={loadingAnimation ? "loading_title" : ""}>Thank you for your cooperation.</h1>
+                        {loadingAnimation && <h1 className={loadingAnimation ? "loading_title" : ""}>Collecting results...</h1>}
                         {!loadingAnimation && (
                             <>
+                                <h1>Thank you for your cooperation.</h1>
                                 <ul>
                                     {answers.map((answer, index) => (
                                         <>
@@ -128,8 +143,10 @@ const Form = () => {
                                 )}
                             </>
                         )}
-
                     </div>
+                    {loadingAnimation && (
+                        <p className='loading_subtext'>This may take up to 10 seconds...</p>
+                    )}
                 </div>
             )}
         </div>
