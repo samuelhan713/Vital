@@ -32,16 +32,21 @@ prover_2 = pd.read_csv("ProductOverview_2.csv", engine="python")
 # prover_3 = pd.read_csv("ProductOverview_3.csv", engine="python")
 # prover_4 = pd.read_csv("ProductOverview_4.csv", engine="python")
 # prover_5 = pd.read_csv("ProductOverview_5.csv", engine="python")
+othing_1 = pd.read_csv("OtherIngredients_1.csv", engine="python")
+othing_2 = pd.read_csv("OtherIngredients_2.csv", engine="python")
 
 sup_frame = [sup_1,sup_2]# ,sup_3,sup_4,sup_5]
 prover_frame = [prover_1, prover_2]# , prover_3, prover_4, prover_5]
+othing_frame = [othing_1, othing_2]
 
 sup_merged = pd.concat(sup_frame, ignore_index=True, sort=False)
 prover_merged = pd.concat(prover_frame, ignore_index=True, sort=False)
+othing_merged = pd.concat(othing_frame, ignore_index=True, sort=False)
 sup_merged = sup_merged[sup_merged["Statement Type"]=="Other"]
 
 # pdb.set_trace()
 full_merged = pd.merge(prover_merged, sup_merged, how="right", on=["URL", "DSLD ID","Product Name"])
+full_merged = pd.merge(full_merged, othing_merged, how="right", on=["URL", "DSLD ID","Product Name"])
 # filter_full_other.fillna("Others")
 analysed_df = pd.DataFrame()
 for index, row in analysed_filtered_DPBS.iterrows():
@@ -139,7 +144,7 @@ allergic_food_dict={'peanuts':['peanuts'],
 
 allergy_list = []
 
-if(len(sys.argv[4]) != 0):
+if(len(sys.argv[5]) != 0):
     for values in ["milk", "egg","fish"]:
         for key, val in allergic_food_dict.items():
             if values in val:
