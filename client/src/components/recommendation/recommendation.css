@@ -4,6 +4,29 @@
 }
 
 .recommendation_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns with equal width */
+    gap: 16px;
+    padding: 3rem;
+    /* Adjust the gap between boxes as needed */
+}
+
+.recommendation_container img {
+    width: 100px;
+}
+
+.recommendation_object {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: solid 2px black;
+    padding: 3rem;
+    border-radius: 9px;
+}
+
+.recommendation_outer {
     margin-top: 80px;
     display: flex;
     justify-content: center;
@@ -11,6 +34,20 @@
     flex-direction: column;
 }
 
-.recommendation_container img {
-    width: 100px;
+.recommendation_object_bottom h1 {
+    margin: 2rem 0 0 0;
+}
+
+.to_mainpage {
+    display: flex;
+    position: absolute;
+    top: 7rem;
+    left: 4rem;
+    gap: 3px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.to_mainpage:hover {
+    text-decoration: none;
 }

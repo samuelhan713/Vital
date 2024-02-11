@@ -145,7 +145,7 @@ const Form = () => {
                         )}
                     </div>
                     {loadingAnimation && (
-                        <p className='loading_subtext'>This may take up to 10 seconds...</p>
+                        <p className='loading_subtext'>(This may take up to 10 seconds)</p>
                     )}
                 </div>
             )}
