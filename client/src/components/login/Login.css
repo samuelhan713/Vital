@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  height: 95vh;
 }
 
 /* .registration-form-sub-container {
@@ -21,12 +21,20 @@
 }
 
 .login-form div {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .login-form label {
   display: block;
   margin-bottom: 0.5rem;
+}
+
+.login_email {
+  margin-bottom: 10px;
+}
+
+.login_password {
+  margin-bottom: 25px;
 }
 
 .buttons {
@@ -38,4 +46,16 @@
   margin: 0;
   font-size: 40px;
   font-weight: 1000;
+}
+
+.login_no_account {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.login_no_account:hover {
+  text-decoration: none;
 }

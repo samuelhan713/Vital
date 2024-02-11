@@ -13,6 +13,7 @@ const MainPage = () => {
     const data = [
         {
             user_id: "1",
+            post_id: 1,
             gender: "male",
             age: true,
             allergies: "tylenol",
@@ -20,6 +21,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 2,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -27,6 +29,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 3,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -34,6 +37,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 4,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -41,6 +45,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 5,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -48,6 +53,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 6,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -55,6 +61,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 7,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -62,6 +69,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 8,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -69,6 +77,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 9,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -76,6 +85,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 10,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -83,6 +93,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 11,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -90,6 +101,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 12,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -97,6 +109,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 13,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -104,6 +117,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 14,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -111,6 +125,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 15,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -118,6 +133,7 @@ const MainPage = () => {
         },
         {
             user_id: "2",
+            post_id: 16,
             gender: "female",
             age: false,
             allergies: "vitamin c",
@@ -133,7 +149,7 @@ const MainPage = () => {
             <h1>Your History</h1>
             <div className='mainpage_container'>
                 {data.map((d) => (
-                    <div className='mainpage_form_data'>
+                    <div className='mainpage_form_data' onClick={() => navigate(`/mainpagedetails/${d.post_id}`)}>
                         <img src={boy} />
                         <div className="mainpage_form_title">
                             {d.allergies}

@@ -19,7 +19,7 @@ const Landing = () => {
                         <div className='landing_title_second'>
                             Healthy
                         </div>
-                        <Button onClick={() => navigate('/register')} className='landing_get_started' variant="text" style={{ color: 'white', backgroundColor: 'gray', padding: '4px 6px 4px 6px', fontWeight: 'bold' }}
+                        <Button onClick={() => navigate('/register')} className='landing_get_started' variant="text" style={{ color: 'white', backgroundColor: '#ff395c', padding: '4px 6px 4px 6px', fontWeight: 'bold' }}
                         >Get started</Button>
                     </div>
                 </div>

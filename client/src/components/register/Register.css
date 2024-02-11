@@ -37,3 +37,15 @@
   font-size: 40px;
   font-weight: 1000;
 }
+
+.register_have_account {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.register_have_account:hover {
+  text-decoration: none;
+}

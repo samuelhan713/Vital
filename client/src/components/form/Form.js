@@ -112,7 +112,7 @@ const Form = () => {
                         {loadingAnimation && <h1 className={loadingAnimation ? "loading_title" : ""}>Collecting results...</h1>}
                         {!loadingAnimation && (
                             <>
-                                <h1>Thank you for your cooperation.</h1>
+                                <h1>Please review your answers.</h1>
                                 <ul>
                                     {answers.map((answer, index) => (
                                         <>

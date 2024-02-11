@@ -1,0 +1,44 @@
+.mainpage_details_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns with equal width */
+    gap: 20px;
+    padding: 3rem;
+    /* Adjust the gap between boxes as needed */
+}
+
+.mainpage_details {
+    margin-top: 80px;
+}
+
+.mainpage_details_object {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: solid 2px black;
+    padding: 3rem;
+    border-radius: 9px;
+    height: 160px;
+}
+
+.mainpage_details_inner {
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.mainpage_details_object_bottom h3 {
+    margin: 10px 0 0 0;
+    font-weight: 600;
+}
+
+.mainpage_details_object_bottom p {
+    margin: 0;
+    color: gray;
+}
+
+.mainpage_details_top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

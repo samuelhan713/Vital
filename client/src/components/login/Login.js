@@ -85,11 +85,11 @@ const Login = () => {
     return (
         <div className="login-form-container">
             <Navbar />
-            <h1>Welcome back</h1>
+            <h1>Welcome back!</h1>
             <p>Hope you're feeling better today.</p>
             <div className="login-form-sub-container">
                 <form className="login-form" onSubmit={handleSubmit}>
-                    <div>
+                    <div className="login_email">
                         <label htmlFor="email">Email:</label>
                         <TextField
                             id="email"
@@ -104,7 +104,7 @@ const Login = () => {
                         />
                     </div>
 
-                    <div>
+                    <div className="login_password">
                         <label htmlFor="password">Password:</label>
                         <TextField
                             id="password"
@@ -135,9 +135,9 @@ const Login = () => {
                                 <Lottie animationData={landingData1} style={style} />
                             </div>
                         ) : (
-                            <Button type="submit" variant="contained" style={{ backgroundColor: "black" }}>Sign In</Button>
+                            <Button type="submit" variant="contained" style={{ backgroundColor: "#ff395c", height: "40px" }}>Sign In</Button>
                         )}
-                        <Button variant="outlined" onClick={register} style={{ color: "black", borderColor: "black" }}>Register</Button>
+                        <div className="login_no_account" onClick={() => navigate('/register')}><p>Don't have an account?</p></div>
                     </div>
                 </form>
             </div>

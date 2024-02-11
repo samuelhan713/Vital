@@ -20,7 +20,7 @@ app.use("/api/questions", questionRoutes);
 
 app.get('/run-python', (req, res) => {
   // Execute the Python script
-  exec('python check.py 4 "Vega" False', (error, stdout, stderr) => {
+  exec('python3 check.py 4 "Vega" False', (error, stdout, stderr) => {
     if (error) {
       console.error(`Error executing Python script: ${error}`);
       return res.status(500).json({ error: 'Internal Server Error' });

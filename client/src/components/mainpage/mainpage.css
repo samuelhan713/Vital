@@ -30,6 +30,12 @@
     border: solid 2px black;
     padding: 3rem;
     border-radius: 9px;
+    cursor: pointer;
+}
+
+.mainpage_form_data:hover {
+    background-color: rgb(229, 229, 229);
+
 }
 
 .mainpage_form_title {

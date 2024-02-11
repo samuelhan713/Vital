@@ -58,34 +58,34 @@ const Register = () => {
             password: formData.password
         };
         createUserAPIMethod(user)
-        .then((response) => {
-            if (response.ok) {
-                loginUserAPIMethod(user)
-                .then((res) => {
-                    if (res.ok) {
-                        res.json().then((jsonResult) => {
-                            dispatch(login(jsonResult));
-                            navigate(`/form/${jsonResult.user._id}`)
+            .then((response) => {
+                if (response.ok) {
+                    loginUserAPIMethod(user)
+                        .then((res) => {
+                            if (res.ok) {
+                                res.json().then((jsonResult) => {
+                                    dispatch(login(jsonResult));
+                                    navigate(`/form/${jsonResult.user._id}`)
+                                });
+                            }
+                        })
+                        .catch((err) => {
+                            console.error("Error during login:", err);
+                        })
+                        .finally(() => {
+                            setRegisterIsLoading(false);
                         });
-                    }
-                })
-                .catch((err) => {
-                    console.error("Error during login:", err);
-                })
-                .finally(() => {
-                    setRegisterIsLoading(false);
-                });
-            } else {
-                console.log("Invalid register");
-                setFailed(true);
-            }
-        })
-        .catch((err) => {
-            console.error("Error registering user:", err);
-        })
-        .finally(() => {
-            setRegisterIsLoading(false);
-        });
+                } else {
+                    console.log("Invalid register");
+                    setFailed(true);
+                }
+            })
+            .catch((err) => {
+                console.error("Error registering user:", err);
+            })
+            .finally(() => {
+                setRegisterIsLoading(false);
+            });
     };
 
     const signIn = () => {
@@ -191,9 +191,10 @@ const Register = () => {
                                     <Lottie animationData={landingData1} style={style} />
                                 </div>
                             ) : (
-                                <Button type="submit" variant="contained" style={{ backgroundColor: "black" }}>Register</Button>
+                                <Button type="submit" variant="contained" style={{ backgroundColor: "#ff395c", height: "40px" }}>Register</Button>
                             )}
-                            <Button variant="outlined" onClick={signIn} style={{ color: "black", borderColor: "black" }}>Sign In</Button>
+                            <div className="register_have_account" onClick={() => navigate('/login')}><p>Already have an account?</p></div>
+                            {/* <Button variant="outlined" onClick={signIn} style={{ color: "black", borderColor: "black" }}>Sign In</Button> */}
                         </div>
                     </div>
                     {failed && (
