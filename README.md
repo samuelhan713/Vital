@@ -18,7 +18,7 @@ One of the biggest challenges we faced was connecting the output of python files
 We learned that it is possible to fetch data from a python file using a node and express backend server. Although flask may be more appropriate to use in that situation, we were able to leverage the skills and knowledge we already have about node and express to create our project with a tech stack we are already familiar with.
 
 ## What's next for Vital
-Vital will be further refined by training our ML model with better data and adding more features to the web app such as using more personal information to increase the accuracy of the recommendations.<img width="1502" alt="Screenshot 2024-02-11 at 06 12 26" src="https://github.com/samuelhan713/Vital/assets/60247381/79653e6e-46d3-4304-9c4c-4ee15227e2c8">
+Vital will be further refined by training our ML model with better data and adding more features to the web app such as using more personal information to increase the accuracy of the recommendations.
 
 ## Snapshots
 <img width="1502" alt="Screenshot 2024-02-11 at 06 12 26" src="https://github.com/samuelhan713/Vital/assets/60247381/e0f95e82-1ebd-4c5b-80e1-83b42ce6dbb1">
