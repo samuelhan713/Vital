@@ -32,3 +32,5 @@ Vital will be further refined by training our ML model with better data and addi
 ![Screenshot 2024-02-11 at 06 19 55](https://github.com/samuelhan713/Vital/assets/60247381/89e469ef-682e-44c7-9a9e-2ba27a45030a)
 
 <img width="1512" alt="Screenshot 2024-02-11 at 06 20 22" src="https://github.com/samuelhan713/Vital/assets/60247381/27aab47b-995e-48f4-b5c8-cbb798c0e568">
+
+<img width="1512" src="https://github.com/samuelhan713/Vital/blob/main/client/src/assets/images/Vital_System_Architecture.jpg">
